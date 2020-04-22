@@ -9,7 +9,8 @@ import Trap from '../Trap';
 const Board = () =>{
     return(
         <div>
-            <MiniDemon/>
+            <MiniDemon initialPosition = {{x: 10, y:8}}/>
+            <MiniDemon initialPosition = {{x: 10, y:10}}/>
             <Demon/>
             <Hero/>
             <Chest/>
@@ -17,7 +18,6 @@ const Board = () =>{
             <img src="./assets/tileset.gif" width = {GAME_SIZE} height = {GAME_SIZE}/>
         </div>
     )
-
 }
 
 export default Board;

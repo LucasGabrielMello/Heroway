@@ -5,22 +5,25 @@ import { TILE_SIZE, HEAD_OFFSET, EDirection } from '../../settings/constants';
 import { start } from 'repl';
 import useHeroMoviment from '../../Hooks/useHeroMoviment';
 
+/*const moviment = {
+    position: { x: 5, y: 5},
+    direction: EDirection.RIGHT,
+}*/
 
 
-const initialPosition = {
-    x: 15,
-    y: 15,
+interface IProps{
+    initialPosition: {x: number, y: number}
 }
 
-const Hero = () =>{
+const Hero = (props: IProps) =>{
 
-    const {position, direction} = useHeroMoviment(initialPosition);
+    const {position, direction} = useHeroMoviment(props.initialPosition);
 
     return(
         <div 
             style={{
                 position: 'absolute',
-                top: TILE_SIZE * position.y,
+                top: TILE_SIZE * position.y - HEAD_OFFSET,
                 left: TILE_SIZE * position.x,
                 width: TILE_SIZE,
                 height: TILE_SIZE + HEAD_OFFSET,

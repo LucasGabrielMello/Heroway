@@ -2,13 +2,23 @@ import React from 'react'
 import './index.css'
 import { TILE_SIZE } from '../../settings/constants';
 
-const Chest = () =>{
+/*const moviment = {
+    position: { x: 5, y: 5},
+    direction: EDirection.RIGHT,
+}*/
+
+
+interface IProps{
+    initialPosition: {x: number, y: number}
+}
+
+const Chest = (props: IProps) =>{
     return(
         <div 
             style={{
                 position: 'absolute',
-                top: TILE_SIZE * 8,
-                left: TILE_SIZE * 3,
+                top: TILE_SIZE * props.initialPosition.y,
+                left: TILE_SIZE * props.initialPosition.x,
                 width: TILE_SIZE,
                 height: 100,
                 backgroundImage: "url(./assets/CHEST.png)",
